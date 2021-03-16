@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80022318ba1f53f479082bfce73b8ba5, type: 3}
-  m_Name: New Default Object
+  m_Name: Bones
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 5231529042389787355, guid: a57b680df179c524e80fb8c0a71763f3, type: 3}
   category: 0
   description: 
