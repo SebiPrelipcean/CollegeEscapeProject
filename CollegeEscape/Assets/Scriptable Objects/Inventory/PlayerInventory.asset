@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
   inventoryList: []
+  savePath: /inventory.Save
