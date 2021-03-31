@@ -251,14 +251,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: c4073b8365096784e845e3dd3ca5838d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -288,11 +288,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 58df62a1af942a04f8ac51b3b5a3ca43, type: 2}
-  x_start: 63
-  y_start: 99
+  inventoryPrefab: {fileID: 2043264684352550799, guid: 5c5e42ce9b833b94aac156c0c8cc57f7,
+    type: 3}
+  x_start: -51
+  y_start: 96
   x_space_between_items: 35
   y_space_between_items: 35
-  nr_column: 10
+  nr_column: 4
 --- !u!1 &379412012
 GameObject:
   m_ObjectHideFlags: 0

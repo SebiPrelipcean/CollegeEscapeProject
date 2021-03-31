@@ -12,6 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80022318ba1f53f479082bfce73b8ba5, type: 3}
   m_Name: Bones
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5231529042389787355, guid: a57b680df179c524e80fb8c0a71763f3, type: 3}
-  category: 0
+  id: 2
+  uiDisplay: {fileID: 1660957820977104790, guid: 15e5dd5844b09294d980f0067bc69bd8,
+    type: 3}
+  category: 2
   description: 
+  itemBuffs:
+  - attribute: 0
+    minVal: 5
+    maxVal: 12
+    value: 0
+  - attribute: 3
+    minVal: 4
+    maxVal: 20
+    value: 0

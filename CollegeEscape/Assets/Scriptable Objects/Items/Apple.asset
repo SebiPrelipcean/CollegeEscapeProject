@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b8bcd1a93705042b9c0d2aa3bce968, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6089103975815832210, guid: 0626601960a2e72449398002f0466fbc, type: 3}
+  id: 1
+  uiDisplay: {fileID: 5000730549932156952, guid: 15e5dd5844b09294d980f0067bc69bd8,
+    type: 3}
   category: 0
   description: 
+  itemBuffs:
+  - attribute: 0
+    minVal: 2
+    maxVal: 14
+    value: 0
   healthValue: 10

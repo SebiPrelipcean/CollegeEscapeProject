@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1314d780d408445ba6ebdd963800c6, type: 3}
   m_Name: Shoes
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4328118521702496669, guid: c12dde21d2cd7074f9b95213c023b29e, type: 3}
-  category: 0
+  id: 0
+  uiDisplay: {fileID: 7431443166627799094, guid: 15e5dd5844b09294d980f0067bc69bd8,
+    type: 3}
+  category: 1
   description: 
+  itemBuffs:
+  - attribute: 0
+    minVal: 4
+    maxVal: 20
+    value: 0

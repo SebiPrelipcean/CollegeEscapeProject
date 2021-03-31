@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
     public void OnTriggerEnter(Collider collider){
-        var item=collider.GetComponent<Item>();
+        var item=collider.GetComponent<GroundItem>();
         if(item){
-            inventory.AddItem(item.item,1);
+            inventory.AddItem(new Item(item.item),1);
             Destroy(collider.gameObject);
         }
     }
@@ -23,6 +23,6 @@ public class Player : MonoBehaviour
     }
 
     private void OnApplicationQuit(){
-        inventory.inventoryList.Clear();
+        inventory.inventoryList.itemsInventory.Clear();
     }
 }
