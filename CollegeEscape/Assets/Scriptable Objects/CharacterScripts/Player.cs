@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public void OnTriggerEnter(Collider collider){
         var item=collider.GetComponent<GroundItem>();
         if(item){
-            inventory.AddItem(new Item(item.item),1);
+            inventory.AddItem(new Item(item.itemObject),1);
             Destroy(collider.gameObject);
         }
     }
