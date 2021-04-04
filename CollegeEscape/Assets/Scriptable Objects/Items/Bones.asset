@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 2
   uiDisplay: {fileID: 1660957820977104790, guid: 15e5dd5844b09294d980f0067bc69bd8,
     type: 3}
-  category: 2
+  category: 0
   description: 
   itemBuffs:
   - attribute: 0

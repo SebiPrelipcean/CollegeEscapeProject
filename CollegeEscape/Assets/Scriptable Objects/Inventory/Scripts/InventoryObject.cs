@@ -11,7 +11,6 @@ using UnityEditor;
 public class InventoryObject : ScriptableObject
 //, ISerializationCallbackReceiver
 {
-  
     public ItemDBObject dbObject;
 
     public string savePath;
@@ -104,7 +103,7 @@ public class InventoryObject : ScriptableObject
 
     [ContextMenu("Clear")]
     public void Clear(){
-        inventoryList=new Inventory();
+        inventoryList.Clear();
     }
 /*
     public void OnBeforeSerialize(){
@@ -125,11 +124,19 @@ public class InventoryObject : ScriptableObject
 public class Inventory{
       public InventorySlot[] itemsInventory=new InventorySlot[24];
 
+    public void Clear(){
+        for(int i=0;i<itemsInventory.Length;i++){
+            itemsInventory[i].UpdateSlot(-1,new Item(),0);
+        }
+    }
 }
 
 [System.Serializable]
 public class InventorySlot
 {
+    public ItemCategories[] allowedItems=new ItemCategories[0];
+       //pentru drag in equipment
+    public UserInterface parent;
     public int id=-1;
     public Item itemObject;
     public int amount;
@@ -154,6 +161,15 @@ public class InventorySlot
 
     public void AddAmount(int value){
         amount+=value;
+    }
+
+    public bool CanPlaceInSlot(ItemObject _itemObject){
+        if(allowedItems.Length<=0) return true;
+        for(int i=0;i<allowedItems.Length;i++){
+            if(_itemObject.category == allowedItems[i])
+            return true;
+        }
+        return false;
     }
     
 }

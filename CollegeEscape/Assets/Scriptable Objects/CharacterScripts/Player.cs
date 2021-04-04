@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
+    
+    public MouseItem mouseItem=new MouseItem();
     public void OnTriggerEnter(Collider collider){
         var item=collider.GetComponent<GroundItem>();
         if(item){

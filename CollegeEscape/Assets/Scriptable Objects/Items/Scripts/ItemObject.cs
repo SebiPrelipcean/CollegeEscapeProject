@@ -4,7 +4,11 @@ using UnityEngine;
 
 public enum ItemCategories{
     FOOD,
-    EQUIPMENT,
+    HAT,
+    WEAPON,
+    SHIRT,
+    PANTS,
+    SHOES,
     DEFAULT
 }
 
@@ -34,6 +38,11 @@ public class Item{
     public int id;
     public string name;
     public ItemBuff[] itemBuffs;
+
+    public Item(){
+        this.id=-1;
+        this.name="";  
+    }
 
     public Item(ItemObject itemObject){
         this.id=itemObject.id;

@@ -6,7 +6,7 @@ public class EquipmentObject : ItemObject
 {
     public void awake(){
         
-        category=ItemCategories.EQUIPMENT;
+        category=ItemCategories.SHIRT;
         
     }
 }
