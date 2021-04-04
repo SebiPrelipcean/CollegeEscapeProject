@@ -15,4 +15,148 @@ MonoBehaviour:
   dbObject: {fileID: 11400000, guid: 77e8e7835c251c54d93ebf0bcf0b22b0, type: 2}
   savePath: /inventory.Save
   inventoryList:
-    itemsInventory: []
+    itemsInventory:
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0
+    - id: -1
+      itemObject:
+        id: 0
+        name: 
+        itemBuffs: []
+      amount: 0

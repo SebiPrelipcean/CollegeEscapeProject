@@ -21,18 +21,46 @@ public class InventoryObject : ScriptableObject
     public void AddItem(Item _itemObject,int _amount){
 
         if(_itemObject.itemBuffs.Length>0){
-            inventoryList.itemsInventory.Add(new InventorySlot(_itemObject.id,_itemObject,_amount));
+            SetEmptySlot(_itemObject,_amount);
             return;
         }
 
-        for(int i=0;i<inventoryList.itemsInventory.Count;i++){
-            if(inventoryList.itemsInventory[i].itemObject.id==_itemObject.id){
+        for(int i=0;i<inventoryList.itemsInventory.Length;i++){
+            if(inventoryList.itemsInventory[i].id==_itemObject.id){
                 inventoryList.itemsInventory[i].AddAmount(_amount);
                 return;
             }
         }
-            inventoryList.itemsInventory.Add(new InventorySlot(_itemObject.id,_itemObject,_amount));
+
+        SetEmptySlot(_itemObject,_amount);
         
+    }
+
+    public InventorySlot SetEmptySlot(Item item,int amount){
+        for(int i=0;i<inventoryList.itemsInventory.Length;i++){
+            if(inventoryList.itemsInventory[i].id<=-1){
+                inventoryList.itemsInventory[i].UpdateSlot(item.id,item,amount);
+                return inventoryList.itemsInventory[i];
+            }
+        }
+
+        //when inventory is full
+
+        return null;
+    }
+
+    public void MoveItemInventory(InventorySlot slot1,InventorySlot slot2){
+        InventorySlot aux=new InventorySlot(slot2.id,slot2.itemObject,slot2.amount);
+        slot2.UpdateSlot(slot1.id,slot1.itemObject,slot1.amount);
+        slot1.UpdateSlot(aux.id,aux.itemObject,aux.amount);
+    }
+
+    public void RemoveItem(Item item){
+        for(int i=0;i<inventoryList.itemsInventory.Length;i++){
+            if(inventoryList.itemsInventory[i].itemObject==item){
+                inventoryList.itemsInventory[i].UpdateSlot(-1,null,0);
+            }
+        }
     }
 
     [ContextMenu("Save")]
@@ -65,7 +93,12 @@ public class InventoryObject : ScriptableObject
 
         IFormatter formatter=new BinaryFormatter();
         Stream stream=new FileStream(string.Concat(Application.persistentDataPath,savePath),FileMode.Open,FileAccess.Read);
-        inventoryList=(Inventory)formatter.Deserialize(stream);
+        Inventory newinventoryList=(Inventory)formatter.Deserialize(stream);
+        for(int i=0;i<inventoryList.itemsInventory.Length;i++){
+            inventoryList.itemsInventory[i].UpdateSlot(newinventoryList.itemsInventory[i].id,
+                                                        newinventoryList.itemsInventory[i].itemObject,
+                                                        newinventoryList.itemsInventory[i].amount);
+        }
         stream.Close();
     }
 
@@ -90,18 +123,30 @@ public class InventoryObject : ScriptableObject
 
 [System.Serializable]
 public class Inventory{
-      public List<InventorySlot> itemsInventory=new List<InventorySlot>();
+      public InventorySlot[] itemsInventory=new InventorySlot[24];
 
 }
 
 [System.Serializable]
 public class InventorySlot
 {
-    public int id;
+    public int id=-1;
     public Item itemObject;
     public int amount;
 
+    public InventorySlot(){
+        this.id=-1;
+        this.itemObject=null;
+        this.amount=0;
+    }
+
     public InventorySlot(int id,Item itemObject,int amount){
+        this.id=id;
+        this.itemObject=itemObject;
+        this.amount=amount;
+    }
+
+    public void UpdateSlot(int id,Item itemObject,int amount){
         this.id=id;
         this.itemObject=itemObject;
         this.amount=amount;
@@ -110,4 +155,5 @@ public class InventorySlot
     public void AddAmount(int value){
         amount+=value;
     }
+    
 }
