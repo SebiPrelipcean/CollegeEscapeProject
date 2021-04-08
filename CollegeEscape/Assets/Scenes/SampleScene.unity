@@ -577,13 +577,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8c0adce8f592b4799f87ab3f846713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 732398516}
   inventory: {fileID: 11400000, guid: 58df62a1af942a04f8ac51b3b5a3ca43, type: 2}
   inventoryPrefab: {fileID: 2043264684352550799, guid: 5c5e42ce9b833b94aac156c0c8cc57f7,
     type: 3}
   x_start: -51
   y_start: 96
-  x_space_between_items: 8
+  x_space_between_items: 35
   y_space_between_items: 35
   nr_column: 4
 --- !u!114 &340626606
@@ -1217,7 +1216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca76316263c83b844a7071f7e922ef7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 732398516}
   inventory: {fileID: 11400000, guid: 0dcaf567d3d05d94f83bbfd55d90be10, type: 2}
   slots:
   - {fileID: 821035572}
@@ -1505,6 +1503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 58df62a1af942a04f8ac51b3b5a3ca43, type: 2}
+  equipment: {fileID: 11400000, guid: 0dcaf567d3d05d94f83bbfd55d90be10, type: 2}
 --- !u!4 &732398517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce,
@@ -1875,7 +1874,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17842482, y: -0.000000008465139, z: 0.0000000015350226, w: 0.98395354}
+  m_LocalRotation: {x: 0.1784248, y: 0.000000008465141, z: -0.0000000015350229, w: 0.98395354}
   m_LocalPosition: {x: -5.63, y: 3, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2713,7 +2712,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350119601}
-  m_LocalRotation: {x: 0.17842482, y: -0.000000008465139, z: 0.0000000015350226, w: 0.98395354}
+  m_LocalRotation: {x: 0.1784248, y: 0.000000008465141, z: -0.0000000015350229, w: 0.98395354}
   m_LocalPosition: {x: -5.63, y: 3, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

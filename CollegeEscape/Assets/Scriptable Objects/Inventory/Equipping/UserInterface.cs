@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,6 @@ using UnityEngine.Events;
 using TMPro;
 public abstract class UserInterface : MonoBehaviour
 {
-    public Player player;
     public InventoryObject inventory;
 
 
@@ -26,23 +25,7 @@ public abstract class UserInterface : MonoBehaviour
 
     void Update()
     {
-        UpdateSlots();
-    }
-
-    public void UpdateSlots(){
-        foreach(KeyValuePair<GameObject,InventorySlot> slot in itemsDesplayed){
-            
-            //If the current slot represents an item
-            if(slot.Value.id>=0){
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite=inventory.dbObject.getItemForId[slot.Value.itemObject.id].uiDisplay;
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color=new Color(1,1,1,1);
-                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text=(slot.Value.amount==1) ? "" : slot.Value.amount.ToString("n0");
-            }else{
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite=null;
-                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color=new Color(1,1,1,1);
-                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text="";
-            }
-        }
+        itemsDesplayed.UpdateSlotDisplay();
     }
 
     public abstract void CreateSlots();
@@ -56,73 +39,93 @@ public abstract class UserInterface : MonoBehaviour
     }
 
     public void OnEnter(GameObject obj){
-        player.mouseItem.hoverObj=obj;
-        if(itemsDesplayed.ContainsKey(obj)){
-            player.mouseItem.hoverItem=itemsDesplayed[obj];
-        }
+        MouseInfo.slotHoverOver=obj;
     }
 
     public void OnExit(GameObject obj){
-        player.mouseItem.hoverObj=null;
-        player.mouseItem.hoverItem=null;
+        MouseInfo.slotHoverOver=null;
     }
 
     public void OnEnterInterface(GameObject obj){
-        player.mouseItem.ui=obj.GetComponent<UserInterface>();
+        MouseInfo.interfaceMouseIsOver=obj.GetComponent<UserInterface>();
     }
 
     public void OnExitInterface(GameObject obj){
-        player.mouseItem.ui=null;
+        MouseInfo.interfaceMouseIsOver=null;
     }
 
     public void OnBeginDrag(GameObject obj){
-        var mouseObject=new GameObject();
-        //rectTransform
-        var rt=mouseObject.AddComponent<RectTransform>();
-        rt.sizeDelta=new Vector2(30,30);//dimensiuni sprite
-        mouseObject.transform.SetParent(transform.parent);
-        //verificam daca este un item in slot
-        if(itemsDesplayed[obj].id >= 0){
-            var image=mouseObject.AddComponent<Image>();
-            image.sprite=inventory.dbObject.getItemForId[itemsDesplayed[obj].id].uiDisplay;
-            image.raycastTarget=false;
+        MouseInfo.draggedTempItem=CreateTempItem(obj);
+    }
+
+    
+
+    public GameObject CreateTempItem(GameObject obj){
+
+        GameObject result = null;
+        if(itemsDesplayed[obj].item.id >= 0){
+            result = new GameObject();
+            //rectTransform
+            var rt = result.AddComponent<RectTransform>();
+            rt.sizeDelta = new Vector2(30,30);//dimensiuni sprite
+            result.transform.SetParent(transform.parent);
+
+            var image = result.AddComponent<Image>();
+            image.sprite = itemsDesplayed[obj].ItemObject.uiDisplay;
+            image.raycastTarget = false;
         }
-        player.mouseItem.obj=mouseObject;
-        player.mouseItem.item=itemsDesplayed[obj];
+
+        return result;
     }
 
     public void OnEndDrag(GameObject obj){
 
-        var itemOnMouse=player.mouseItem;
-        var mouseHoverItem=itemOnMouse.hoverItem;
-        var mouseHoverObj=itemOnMouse.hoverObj;
-        var getItemObject=inventory.dbObject.getItemForId;
 
-        if(itemOnMouse.ui!=null){
-            if(mouseHoverObj){
-                if(mouseHoverItem.CanPlaceInSlot(getItemObject[itemsDesplayed[obj].id]) && (mouseHoverItem.itemObject.id<=-1 || (mouseHoverItem.itemObject.id>=0 && itemsDesplayed[obj].CanPlaceInSlot(getItemObject[mouseHoverItem.itemObject.id]))))
-                    inventory.MoveItemInventory(itemsDesplayed[obj], mouseHoverItem.parent.itemsDesplayed[itemOnMouse.hoverObj]);
-            }
-        }else{
-            inventory.RemoveItem(itemsDesplayed[obj].itemObject);
-        }
-        Destroy(itemOnMouse.obj);
-        player.mouseItem.item=null;
+         Destroy(MouseInfo.draggedTempItem);
+
+         if(MouseInfo.interfaceMouseIsOver == null){
+             itemsDesplayed[obj].RemoveItem();
+             return;
+         }
+
+         if(MouseInfo.slotHoverOver){
+             InventorySlot mouseHoverSlotData=MouseInfo.interfaceMouseIsOver.itemsDesplayed[MouseInfo.slotHoverOver];
+             inventory.SwapItemsInventory(itemsDesplayed[obj],mouseHoverSlotData);
+         }
+
     }
 
     public void OnDrag(GameObject obj){
-        if(player.mouseItem.obj!=null){
-            player.mouseItem.obj.GetComponent<RectTransform>().position=Input.mousePosition;
+        if(MouseInfo.draggedTempItem!=null){
+            MouseInfo.draggedTempItem.GetComponent<RectTransform>().position=Input.mousePosition;
         }
     }
 
+
+
 }
 
-public class MouseItem{
-    public UserInterface ui;
-    public GameObject obj;
-    public InventorySlot item;
-    public InventorySlot hoverItem;
-    public GameObject hoverObj;
+public static class MouseInfo{
+    public static UserInterface interfaceMouseIsOver;
+    public static GameObject draggedTempItem;
+    public static GameObject slotHoverOver;
 }
 
+//Extension method for our dictionary because we want to make a class for that specific dictionary
+public static class ExtensionMethods{
+    public static void UpdateSlotDisplay(this Dictionary<GameObject,InventorySlot> _itemsDesplayed){
+        foreach(KeyValuePair<GameObject,InventorySlot> slot in _itemsDesplayed){
+            
+            //If the current slot represents an item
+            if(slot.Value.item.id>=0){
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite=slot.Value.ItemObject.uiDisplay;
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color=new Color(1,1,1,1);
+                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text=(slot.Value.amount==1) ? "" : slot.Value.amount.ToString("n0");
+            }else{
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite=null;
+                slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color=new Color(1,1,1,1);
+                slot.Key.GetComponentInChildren<TextMeshProUGUI>().text="";
+            }
+        }
+    }
+}

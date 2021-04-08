@@ -15,7 +15,7 @@ public class ItemDBObject : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize(){
         for(int i=0;i<items.Length;i++){
-            items[i].id=i;
+            items[i].data.id=i;
             getItemForId.Add(i,items[i]);
         }
     }

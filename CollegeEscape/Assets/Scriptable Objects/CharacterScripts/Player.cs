@@ -5,26 +5,33 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public InventoryObject inventory;
+    public InventoryObject equipment;
     
-    public MouseItem mouseItem=new MouseItem();
+    //public MouseItem mouseItem=new MouseItem();
     public void OnTriggerEnter(Collider collider){
         var item=collider.GetComponent<GroundItem>();
         if(item){
-            inventory.AddItem(new Item(item.itemObject),1);
-            Destroy(collider.gameObject);
+            Item _item=new Item(item.itemObject);
+            if(inventory.AddItem(_item,1)){
+                Destroy(collider.gameObject);
+            }
+            
         }
     }
 
     private void Update(){
         if(Input.GetKeyDown(KeyCode.Tab)){
             inventory.Save();
+            equipment.Save();
         }
         if(Input.GetKeyDown(KeyCode.Return)){
             inventory.Load();
+            equipment.Load();
         }
     }
 
     private void OnApplicationQuit(){
-        inventory.inventoryList.itemsInventory=new InventorySlot[24];
+        inventory.inventoryList.Clear();
+        equipment.inventoryList.Clear();
     }
 }

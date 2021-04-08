@@ -16,147 +16,147 @@ MonoBehaviour:
   savePath: /inventory.Save
   inventoryList:
     itemsInventory:
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
-    - id: -1
-      itemObject:
-        id: 0
+    - allowedItems: 
+      item:
+        id: -1
         name: 
         itemBuffs: []
       amount: 0
