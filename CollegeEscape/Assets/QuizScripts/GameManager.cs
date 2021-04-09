@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     }
 
     void OnDisable(){
-        events.updateQuestionAnswer -= UpdateAnswers;
+        events.updateQuestionAnswer= UpdateAnswers;
     }
 
     public void Accept(){
