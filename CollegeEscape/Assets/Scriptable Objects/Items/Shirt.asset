@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1314d780d408445ba6ebdd963800c6, type: 3}
   m_Name: Shirt
   m_EditorClassIdentifier: 
-  id: 5
   uiDisplay: {fileID: -3548245318124798596, guid: 15e5dd5844b09294d980f0067bc69bd8,
     type: 3}
   category: 3
   description: 
-  itemBuffs: []
+  stackable: 0
+  data:
+    id: 4
+    name: 
+    itemBuffs:
+    - attribute: 2
+      minVal: 1
+      maxVal: 20
+      value: 0

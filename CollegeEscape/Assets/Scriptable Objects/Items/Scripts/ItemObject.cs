@@ -57,7 +57,7 @@ public class Item{
 }
 
 [System.Serializable]
-public class ItemBuff{
+public class ItemBuff : ModifiersInterface{
     public Attributes attribute;
     public int minVal;
     public int maxVal;
@@ -73,5 +73,9 @@ public class ItemBuff{
     public void generateValue(){
         //UnityEngine deoarece folosim System.Serializable
         value=UnityEngine.Random.Range(minVal,maxVal);
+    }
+
+    public void AddValue(ref int _value){
+        _value += value;
     }
 }

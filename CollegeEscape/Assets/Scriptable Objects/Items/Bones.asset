@@ -20,4 +20,8 @@ MonoBehaviour:
   data:
     id: 1
     name: 
-    itemBuffs: []
+    itemBuffs:
+    - attribute: 3
+      minVal: 1
+      maxVal: 16
+      value: 0

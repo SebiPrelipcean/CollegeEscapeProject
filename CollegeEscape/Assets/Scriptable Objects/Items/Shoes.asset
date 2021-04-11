@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1314d780d408445ba6ebdd963800c6, type: 3}
   m_Name: Shoes
   m_EditorClassIdentifier: 
-  id: 0
   uiDisplay: {fileID: 7431443166627799094, guid: 15e5dd5844b09294d980f0067bc69bd8,
     type: 3}
   category: 5
   description: 
-  itemBuffs:
-  - attribute: 0
-    minVal: 4
-    maxVal: 20
-    value: 0
+  stackable: 0
+  data:
+    id: 5
+    name: 
+    itemBuffs:
+    - attribute: 0
+      minVal: 1
+      maxVal: 10
+      value: 0
+    - attribute: 0
+      minVal: 5
+      maxVal: 14
+      value: 0

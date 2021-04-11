@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerEquipment
   m_EditorClassIdentifier: 
   dbObject: {fileID: 11400000, guid: 77e8e7835c251c54d93ebf0bcf0b22b0, type: 2}
+  interfaceType: 1
   savePath: 
   inventoryList:
     slotsInventory:
@@ -36,10 +37,18 @@ MonoBehaviour:
       amount: 0
     - allowedItems: 0200000000000000
       item:
-        id: -1
-        name: 
-        itemBuffs: []
-      amount: 0
+        id: 0
+        name: Apple
+        itemBuffs:
+        - attribute: 0
+          minVal: 1
+          maxVal: 10
+          value: 1
+        - attribute: 1
+          minVal: 2
+          maxVal: 14
+          value: 3
+      amount: 2
     - allowedItems: 04000000
       item:
         id: -1

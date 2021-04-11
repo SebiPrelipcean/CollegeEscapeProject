@@ -1504,6 +1504,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 58df62a1af942a04f8ac51b3b5a3ca43, type: 2}
   equipment: {fileID: 11400000, guid: 0dcaf567d3d05d94f83bbfd55d90be10, type: 2}
+  attributes:
+  - attributeType: 2
+    modInt:
+      baseValue: 0
+      modifiedValue: 0
+  - attributeType: 3
+    modInt:
+      baseValue: 0
+      modifiedValue: 0
+  - attributeType: 0
+    modInt:
+      baseValue: 0
+      modifiedValue: 0
+  - attributeType: 1
+    modInt:
+      baseValue: 0
+      modifiedValue: 0
 --- !u!4 &732398517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce,

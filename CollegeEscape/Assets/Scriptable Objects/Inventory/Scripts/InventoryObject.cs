@@ -6,12 +6,19 @@ using UnityEngine;
 using System.Runtime.Serialization;
 using UnityEditor;
 
+public enum InterfaceType{
+    Inventory,
+    Equipment,
+    Chest
+}
 
 [CreateAssetMenu(fileName="New Inventory", menuName="Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 //, ISerializationCallbackReceiver
 {
     public ItemDBObject dbObject;
+
+    public InterfaceType interfaceType;
 
     public string savePath;
 
