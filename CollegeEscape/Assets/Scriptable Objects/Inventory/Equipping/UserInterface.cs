@@ -14,8 +14,9 @@ public abstract class UserInterface : MonoBehaviour
 
     void Start()
     {
-        for(int i=0;i<inventory.inventoryList.itemsInventory.Length;i++){
-            inventory.inventoryList.itemsInventory[i].parent=this;
+        for(int i=0;i<inventory.GetSlots.Length;i++){
+            inventory.GetSlots[i].parent=this;
+            inventory.GetSlots[i].OnAfterUpdate += OnSlotUpdate;
         }
         CreateSlots();
         AddEvent(gameObject,EventTriggerType.PointerEnter,delegate{OnEnterInterface(gameObject);});
@@ -23,10 +24,24 @@ public abstract class UserInterface : MonoBehaviour
             
     }
 
-    void Update()
+    private void OnSlotUpdate(InventorySlot slot){
+
+        if(slot.item.id>=0){
+                slot.slotDisplayed.transform.GetChild(0).GetComponentInChildren<Image>().sprite=slot.ItemObject.uiDisplay;
+                slot.slotDisplayed.transform.GetChild(0).GetComponentInChildren<Image>().color=new Color(1,1,1,1);
+                slot.slotDisplayed.GetComponentInChildren<TextMeshProUGUI>().text=(slot.amount==1) ? "" : slot.amount.ToString("n0");
+            }else{
+                slot.slotDisplayed.transform.GetChild(0).GetComponentInChildren<Image>().sprite=null;
+                slot.slotDisplayed.transform.GetChild(0).GetComponentInChildren<Image>().color=new Color(1,1,1,1);
+                slot.slotDisplayed.GetComponentInChildren<TextMeshProUGUI>().text="";
+            }
+
+    }
+
+    /*void Update()
     {
         itemsDesplayed.UpdateSlotDisplay();
-    }
+    }*/
 
     public abstract void CreateSlots();
 
@@ -114,6 +129,9 @@ public static class MouseInfo{
 //Extension method for our dictionary because we want to make a class for that specific dictionary
 public static class ExtensionMethods{
     public static void UpdateSlotDisplay(this Dictionary<GameObject,InventorySlot> _itemsDesplayed){
+
+        //we need to make a callback for updating the slot display, so instead of doing a foreach loop for every single slot, we'll wait 
+        //for a callback to fire saying the slot was updated and then we will run that code
         foreach(KeyValuePair<GameObject,InventorySlot> slot in _itemsDesplayed){
             
             //If the current slot represents an item

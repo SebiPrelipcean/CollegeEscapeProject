@@ -15,60 +15,40 @@ MonoBehaviour:
   dbObject: {fileID: 11400000, guid: 77e8e7835c251c54d93ebf0bcf0b22b0, type: 2}
   savePath: 
   inventoryList:
-    itemsInventory:
+    slotsInventory:
     - allowedItems: 01000000
-      parent: {fileID: 0}
-      id: 3
-      itemObject:
-        id: 3
-        name: Hat
+      item:
+        id: -1
+        name: 
         itemBuffs: []
-      amount: 1
+      amount: 0
     - allowedItems: 03000000
-      parent: {fileID: 0}
-      id: 5
-      itemObject:
-        id: 5
-        name: Shirt
+      item:
+        id: -1
+        name: 
         itemBuffs: []
-      amount: 1
-    - allowedItems: 02000000
-      parent: {fileID: 0}
-      id: 6
-      itemObject:
-        id: 6
-        name: Sword
+      amount: 0
+    - allowedItems: 0000000002000000
+      item:
+        id: -1
+        name: 
         itemBuffs: []
-      amount: 1
-    - allowedItems: 00000000
-      parent: {fileID: 0}
-      id: 1
-      itemObject:
-        id: 1
-        name: Apple
-        itemBuffs:
-        - attribute: 0
-          minVal: 2
-          maxVal: 14
-          value: 6
-      amount: 1
+      amount: 0
+    - allowedItems: 0200000000000000
+      item:
+        id: -1
+        name: 
+        itemBuffs: []
+      amount: 0
     - allowedItems: 04000000
-      parent: {fileID: 0}
-      id: 4
-      itemObject:
-        id: 4
-        name: Pants
+      item:
+        id: -1
+        name: 
         itemBuffs: []
-      amount: 1
+      amount: 0
     - allowedItems: 05000000
-      parent: {fileID: 0}
-      id: 0
-      itemObject:
-        id: 0
-        name: Shoes
-        itemBuffs:
-        - attribute: 0
-          minVal: 4
-          maxVal: 20
-          value: 4
-      amount: 1
+      item:
+        id: -1
+        name: 
+        itemBuffs: []
+      amount: 0

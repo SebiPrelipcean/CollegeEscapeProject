@@ -9,7 +9,7 @@ public class StaticInterface : UserInterface
 
     public override void CreateSlots(){
         itemsDesplayed=new Dictionary<GameObject, InventorySlot>();
-        for(int i=0;i<inventory.inventoryList.itemsInventory.Length;i++){
+        for(int i=0;i<inventory.GetSlots.Length;i++){
             var obj=slots[i];
 
             AddEvent(obj,EventTriggerType.PointerEnter,delegate{OnEnter(obj);});
@@ -18,8 +18,10 @@ public class StaticInterface : UserInterface
             AddEvent(obj,EventTriggerType.EndDrag,delegate{OnEndDrag(obj);});
             AddEvent(obj,EventTriggerType.Drag,delegate{OnDrag(obj);});
 
+            inventory.GetSlots[i].slotDisplayed = obj;
+
             //sincronizare cu baza de date
-            itemsDesplayed.Add(obj,inventory.inventoryList.itemsInventory[i]);
+            itemsDesplayed.Add(obj,inventory.GetSlots[i]);
         }
     }
 }

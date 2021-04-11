@@ -6,17 +6,20 @@ using UnityEngine;
 public class ItemDBObject : ScriptableObject, ISerializationCallbackReceiver
 {
     public ItemObject[] items;
-      public Dictionary<int,ItemObject> getItemForId=new Dictionary<int,ItemObject>();
-
 
     public void OnBeforeSerialize(){
-        getItemForId=new Dictionary<int, ItemObject>();
     }
 
     public void OnAfterDeserialize(){
+        UpdateID();
+    }
+
+    [ContextMenu("Update ID's")]
+    public void UpdateID(){
         for(int i=0;i<items.Length;i++){
-            items[i].data.id=i;
-            getItemForId.Add(i,items[i]);
+            if(items[i].data.id != i){
+                items[i].data.id = i;
+            }
         }
     }
 
