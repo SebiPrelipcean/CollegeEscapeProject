@@ -443,6 +443,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346110925}
   m_CullTransparentMesh: 0
+--- !u!1 &485208667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485208669}
+  - component: {fileID: 485208668}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &485208668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485208667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9b7ea0bfcd79548a4257c2650e861f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: CorrectSFX
+    audioClip: {fileID: 8300000, guid: 4e7d2ed2bd3ce174aa8495737ade87dc, type: 3}
+    soundParameters:
+      Volume: 0.4
+      Pitch: 1
+      Loop: 0
+    audioSource: {fileID: 0}
+  - name: IncorrectSFX
+    audioClip: {fileID: 8300000, guid: b2cde81c1526d304786f03e9cedb4604, type: 3}
+    soundParameters:
+      Volume: 0.4
+      Pitch: 1
+      Loop: 0
+    audioSource: {fileID: 0}
+  - name: CountdownSFX
+    audioClip: {fileID: 8300000, guid: 20f8537e455b1a945a15ba1a454c7517, type: 3}
+    soundParameters:
+      Volume: 0.4
+      Pitch: 0.85
+      Loop: 0
+    audioSource: {fileID: 0}
+  - name: GameMusic
+    audioClip: {fileID: 8300000, guid: 5c2d1fcea55170649a5e1b77c5181d67, type: 3}
+    soundParameters:
+      Volume: 0.2
+      Pitch: 1
+      Loop: 1
+    audioSource: {fileID: 0}
+  sourcePrefab: {fileID: 6655004591514572780, guid: 8e77bd052bf9c5b4e916514b8547f3f0,
+    type: 3}
+  startupTrack: GameMusic
+--- !u!4 &485208669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485208667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 421.12262, y: 230.83652, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682902092
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +1005,8 @@ GameObject:
   - component: {fileID: 939961668}
   - component: {fileID: 939961670}
   - component: {fileID: 939961669}
+  - component: {fileID: 939961671}
+  - component: {fileID: 939961672}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -994,6 +1071,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 939961667}
   m_CullTransparentMesh: 0
+--- !u!225 &939961671
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939961667}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &939961672
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939961667}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ef7e25dc3f08c7f4bb2f635574b2c7c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &949104097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1075,7 +1183,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 949104100}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1677518404}
+        m_MethodName: RestartQuiz
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &949104100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,7 +1536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: x'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a65b9b691092d24f85cf54adcd3bd1b, type: 2}
   m_sharedMaterial: {fileID: 21641202490330990, guid: 3a65b9b691092d24f85cf54adcd3bd1b,
@@ -1750,7 +1869,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2108086127}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.79875964
+  m_Size: 0.918405
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1824,7 +1943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000038146973}
+  m_AnchoredPosition: {x: 0, y: -0.00004196167}
   m_SizeDelta: {x: 0, y: 41.98065}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1433467426
@@ -2042,7 +2161,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1438252455}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1677518404}
+        m_MethodName: ExitQuiz
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1438252455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2384,6 +2514,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events: {fileID: 11400000, guid: 6e817ac38e4c9904b98866291eae9a13, type: 2}
+  timerAnimator: {fileID: 939961672}
+  timerText: {fileID: 1707521407}
+  timerHalfColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  timerAlmostDoneColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &1677518405
 Transform:
   m_ObjectHideFlags: 0

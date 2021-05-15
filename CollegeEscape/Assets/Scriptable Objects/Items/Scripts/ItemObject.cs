@@ -21,6 +21,9 @@ public enum Attributes{
 public abstract class ItemObject : ScriptableObject
 {
     public Sprite uiDisplay;
+
+    public GameObject characterDisplay;
+
     public ItemCategories category;
     [TextArea(15,20)]
     public string description;
@@ -28,9 +31,31 @@ public abstract class ItemObject : ScriptableObject
     public bool stackable;
     public Item data=new Item();
 
+    public List<string> boneNames = new List<string>();
+
     public Item createItem(){
         Item newItem=new Item(this);
         return newItem; 
+    }
+
+    //runs every time when a variable changes for garbage collector
+    private void OnValidate(){
+        boneNames.Clear();
+
+        if(characterDisplay == null){
+            return;
+        }
+
+        if(!characterDisplay.GetComponent<SkinnedMeshRenderer>()){
+            return;
+        }
+
+        var renderer = characterDisplay.GetComponent<SkinnedMeshRenderer>();
+        var bones = renderer.bones;
+
+        foreach( var trans in bones ){
+            boneNames.Add(trans.name);
+        }
     }
 }
 
